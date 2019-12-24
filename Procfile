@@ -1,1 +1,1 @@
-web: node src/index.js
+web: npm run build && node --inspect build/index.js
