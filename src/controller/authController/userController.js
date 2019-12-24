@@ -9,13 +9,13 @@ export async function C_login(req,res) {
     
     const username = req.body.username;
     const password = req.body.password;
-    const user = await findUser(username)//.catch()
+    const user = await findUser(username)
     
     if(!user){
         res.status(400).send({ errors : { msg : "Username doesn't exists"}})
         return
     }
-    const validPassword = await bcrypt.compare(password, user.password).catch()
+    const validPassword = await bcrypt.compare(password, user.password)
     if(!validPassword){
         res.status(400).send({ errors : { msg : "Password doesn't matchs"}})
     }
@@ -37,11 +37,11 @@ export async function C_register(req,res) {
     const username = req.body.username;
     const firstname = req.body.firstname
     const lastname = req.body.lastname
-    const password = await hashString(req.body.password).catch()
+    const password = await hashString(req.body.password)
     addUser(username,firstname,lastname,password)
         .then(
             () => {
-                res.status(200).send({ errors : { msg : "User registered."}})
+                res.status(200).send("User registered.")
             },
             (err) => {
                 if(err.constraint == "pk_username"){

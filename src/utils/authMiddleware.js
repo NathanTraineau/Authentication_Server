@@ -4,7 +4,7 @@ import { findUser } from '../models/userModel'
 
 
 export function verifyToken(req,res,next) {
-    const bearerHeader = req.headers['authorization'] || req.body.token || req.query.token;
+  const bearerHeader = req.headers['authorization'] || req.body.token || req.query.token;
 
   if (bearerHeader) {
     const bearer = bearerHeader.split(' ');
