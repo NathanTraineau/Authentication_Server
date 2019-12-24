@@ -13,6 +13,7 @@ export async function C_login(req,res) {
     
     if(!user){
         res.status(400).send({ errors : { msg : "Username doesn't exists"}})
+        return
     }
     const validPassword = await bcrypt.compare(password, user.password)
     if(!validPassword){

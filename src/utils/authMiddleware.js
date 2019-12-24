@@ -12,6 +12,7 @@ export function verifyToken(req,res,next) {
     req.token = bearerToken;
   }else{
     res.status(401).send({ errors : { msg : 'Access Denied, there is no token'}});
+    return
   }
 
     try {
@@ -28,6 +29,7 @@ export function verifyRefreshToken(req,res,next) {
 
   if (!refreshToken) {
     res.status(401).send({ errors : { msg : 'Access Denied, there is no token'}});
+    return
   }
 
   try {
