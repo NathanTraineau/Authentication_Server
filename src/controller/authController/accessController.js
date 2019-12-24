@@ -2,9 +2,7 @@ import 'dotenv/config';
 import { addAccess, updateAccess, findAccess } from '../../models/accessModel'
 
 export async function C_updateAccess(req,res) {
-    if(!username || !clientID ){
-        res.status(400).send("The parameters are wrong.")
-    }
+    
     const username = req.body.username;
     const clientID = req.body.clientID;
     const accessValue = req.body.access

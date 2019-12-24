@@ -2,9 +2,7 @@ import 'dotenv/config';
 import {addClient} from '../../models/clientModel'
 
 export async function C_registerClient(req,res) {
-    if(!req.body.appName || !req.body.clientID){
-        res.status(400).send("The parameters are wrong.")
-    }
+    
     const appName = req.body.appName
     const clientID = req.body.clientID
     addClient(clientID,appName)
