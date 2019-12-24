@@ -1,1 +1,1 @@
-web: npm run build && node --inspect build/index.js
+web: npm run prod
