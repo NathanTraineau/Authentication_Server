@@ -9,7 +9,7 @@ export async function C_login(req,res) {
     
     const username = req.body.username;
     const password = req.body.password;
-    const user = await findUser(username).catch()
+    const user = await findUser(username)//.catch()
     
     if(!user){
         res.status(400).send({ errors : { msg : "Username doesn't exists"}})
