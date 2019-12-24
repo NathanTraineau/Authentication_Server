@@ -36,9 +36,9 @@ export function addUser(username, firstname,lastname,password) {
         })
   }
 
-  export function upgradeToSecondRank(username) {
-    const sql = 'update "User" set "role"=$1 where "username"=$1'
-    const params = ["secondRang",username];
+  export function changeUserRole(username, role) {
+    const sql = 'update "User" set "role"=$1 where "username"=$2'
+    const params = [role,username];
     return new Promise((resolve, reject) => {
           db.query(sql, params)
           .then((res) => {
