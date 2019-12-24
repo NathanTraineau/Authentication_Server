@@ -51,7 +51,6 @@ export function verifyRole(roles) {
   }
 }
 
-
 export async function verifyClient(req,res,next){
     const clientID = req.body.clientId;
     const appName = req.body.appName;
