@@ -37,7 +37,7 @@ export async function C_register(req,res) {
     const username = req.body.username;
     const firstname = req.body.firstname
     const lastname = req.body.lastname
-    const password = await hashString(req.body.password)
+    const password = await hashString(req.body.password).catch()
     addUser(username,firstname,lastname,password)
         .then(
             () => {

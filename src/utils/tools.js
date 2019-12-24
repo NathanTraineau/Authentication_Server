@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs'
 import { validationResult } from 'express-validator';
 
 export async function hashString(string){
-    const salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(10).catch();
     return bcrypt.hash(string, salt);
 }
 

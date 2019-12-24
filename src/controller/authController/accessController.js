@@ -7,7 +7,7 @@ export async function C_updateAccess(req,res) {
     const clientID = req.body.clientID;
     const accessValue = req.body.access
 
-    const access = findAccess(username,clientID)
+    const access = await findAccess(username,clientID).catch()
     
     if(!access){
         addAccess(username,clientID,accessValue)
@@ -35,7 +35,7 @@ export async function C_getAccess(req,res){
     const username = req.body.username;
     const clientID = req.body.clientID;
 
-    const access = findAccess(username,clientID)
+    const access = await findAccess(username,clientID).catch()
 
     if(!access){
         res.status(200).send(false)
