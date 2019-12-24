@@ -9,7 +9,7 @@ const app = express();
 // Middlewares at application level
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+ 
 //mongooseConnection();
 
 // Routes
