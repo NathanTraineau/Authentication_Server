@@ -21,6 +21,7 @@ function validate(method) {
         case 'changeAccess': {
           return [
             body('username', "username is not given").exists(),
+            body('clientID', "clientID is not given").exists(),
             body('access', "access is not given").exists(),
           ]
         }
