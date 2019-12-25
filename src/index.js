@@ -3,12 +3,12 @@ import express from 'express';
 
 import routes from './routes';
 const app = express();
-
+/*
 if(process.env.ENVIRONNEMENT !== 'PRODUCTION'){
     const swaggerUI = require('swagger-ui-express')
     const swaggerDocument = require('../swagger.json')
     app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
-}
+}*/
 
 // Middlewares at application level
 app.use(express.json());
