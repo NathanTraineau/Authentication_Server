@@ -24,7 +24,7 @@ export async function C_login(req,res) {
     // We build the tokens
     const token = jwt.sign(user, process.env.ACCESS_SECRET, { expiresIn: 3600 })
     const refreshToken = jwt.sign(user, process.env.REFRESH_SECRET, { expiresIn: Number.MAX_SAFE_INTEGER})
-
+    console.log(token.user)
     const response = {
         "account": user,
         "token": token,
@@ -57,9 +57,8 @@ export async function C_register(req,res) {
 export async function C_refreshToken(req,res){
     const user = req.user
     delete user['password']
-    console.log(user)
     const token = jwt.sign(user, process.env.ACCESS_SECRET)
-    response = {token : token}
+    const response = {token : token}
     res.status(200).send(response)
 }
 

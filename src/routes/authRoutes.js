@@ -3,7 +3,7 @@ import 'dotenv/config';
 import { C_login, C_register, C_refreshToken } from '../controller/authController/userController'
 import { C_registerClient } from '../controller/authController/clientController' 
 import { checkParams } from '../utils/tools'
-import { verifyRefreshToken } from '../utils/authMiddleware'
+import { verifyRefreshToken, verifyToken } from '../utils/authMiddleware'
 import { body } from 'express-validator'
 
 const authRouter = Router();
@@ -16,6 +16,9 @@ authRouter.post('/registerClient',validate('registerClient'), checkParams, C_reg
 
 authRouter.post('/refreshToken',validate('refreshToken'), checkParams, verifyRefreshToken, C_refreshToken)
 
+authRouter.post('/verifyToken', verifyToken, (req,res) => {
+  res.status(200).send('Valid Token')
+})
 
 // The method that validate the parameter 
 
