@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import { addUser, findUser, changeUserRole } from '../../models/userModel'
 import { hashString } from '../../utils/tools'
-import { validationResult } from 'express-validator';
 
 export async function C_login(req,res) {
     

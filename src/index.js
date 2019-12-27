@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-
+import cors from 'cors'
 import routes from './routes';
 const app = express();
 /*
@@ -13,6 +13,7 @@ if(process.env.ENVIRONNEMENT !== 'PRODUCTION'){
 // Middlewares at application level
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors())
 
 // Routes
 app.use('/api', routes);
